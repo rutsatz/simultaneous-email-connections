@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+}
+
+group 'org.test'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    implementation group: 'com.sun.mail', name: 'javax.mail', version: '1.6.1'
+    implementation (group: 'org.apache.commons', name: 'commons-email', version: '1.5') {
+        exclude group: 'com.sun.mail'
+    }
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+test {
+    useJUnitPlatform()
+}
